@@ -96,6 +96,7 @@ void TcpListener::thread_process(TcpListener* me) {
                 auto singleConnection = make_unique<SingleConnection>(me->myShadow, move(tcpSocket));
 				me->socketAddress2Connection.insert({ key, move(singleConnection) });
                 me->socketAddress2Connection[key]->start();
+				me->catch_connect_event(key);
 			}
             {
                 lock_guard<mutex> otherLock(me->markedMutex);

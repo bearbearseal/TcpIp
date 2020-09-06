@@ -114,6 +114,7 @@ namespace Test_Socket {
     }
 
     void run() {
+		printf("Start\n");
        	TcpSocket tcpSocket(true);
         test_connect(tcpSocket, "127.0.0.1", 7777);
         test_connect(tcpSocket, "localhost", 8888);
